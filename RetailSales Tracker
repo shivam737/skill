@@ -1,0 +1,104 @@
+# Define menu list
+menu = []
+
+
+# Define function to add new item to menu
+def add_item():
+    # Prompt user for item details
+    name = input("Enter the name of the item: ")
+    category = input("Enter the category of the item: ")
+    price = float(input("Enter the price of the item: "))
+    quantity = int(input("Enter the quantity of the item: "))
+
+    # Add item to menu list
+    menu.append({
+        "name": name,
+        "category": category,
+        "price": price,
+        "quantity": quantity
+    })
+
+    # Print confirmation message
+    print("Item added to menu:")
+    print("Name:", name)
+    print("Category:", category)
+    print("Price: ${:.2f}".format(price))
+    print("Quantity:", quantity)
+
+
+# Define function to update item quantities
+def update_quantity():
+    # Print current menu
+    print("Current menu:")
+    print("Name\tCategory\tPrice\tQuantity")
+    for item in menu:
+        print(f"{item['name']}\t{item['category']}\t${item['price']}\t{item['quantity']}")
+
+    # Prompt user for item to update and new quantity
+    name = input("Enter the name of the item you want to update: ")
+    quantity = int(input("Enter the new quantity: "))
+
+    # Update quantity of specified item
+    for item in menu:
+        if item["name"] == name:
+            item["quantity"] = quantity
+            # Print confirmation message
+            print("Item quantity updated:")
+            print("Name:", name)
+            print("New quantity:", quantity)
+            return
+
+    # Print error message if item not found
+    print("Error: Item not found in menu")
+
+
+# Define function to view sales summary
+def view_summary():
+    # Print sales summary
+    print("Sales summary:")
+    print("Name\tCategory\tPrice\tQuantity\tTotal sales")
+    for item in menu:
+        total_sales = item["price"] * item["quantity"]
+        print(f"{item['name']}\t{item['category']}\t${item['price']}\t{item['quantity']}\t${total_sales}")
+
+
+# To get the sales total sales wise from top to bottom
+def get_top():
+    sales = []
+    for item in menu:
+        sales.append((item['name'], item["price"] * item["quantity"]))
+    print('Item Sales : ')
+    sales.sort(key=lambda a: a[-1], reverse=True)
+    for name, value in sales:
+        print(f'{name} : {value}')
+
+
+# Main program loop
+while True:
+    # Print menu
+    print()
+    print("\nWelcome to the cafe inventory and sales tracker!\n")
+    print("What would you like to do?")
+    print("1. Add new item to menu")
+    print("2. Update item quantities")
+    print("3. View sales summary")
+    print("4. View Sales Analysis")
+    print("5. Quit")
+
+    # Prompt user for choice
+    choice = input("\nEnter your choice (1-4): ")
+
+    # Perform action based on user choice
+    if choice == "1":
+        add_item()
+    elif choice == "2":
+        update_quantity()
+    elif choice == "3":
+        view_summary()
+    elif choice == "4":
+        get_top()
+    elif choice == "5":
+        print("\nGoodbye!")
+        break
+    else:
+        print("Error: Invalid choice")
