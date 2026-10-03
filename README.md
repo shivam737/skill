@@ -8,7 +8,7 @@
    In this, employee details can be added. The details will include the **ID,** **Name, Age, Gender, Job Position** and **salary**. Also a check will be applied to ensure uniqueness of the **Employee ID.**
 2. **Update Employee**\
    In this, employee detail can be updated using **employee id**\
-   Also a submenu will be provided to the user to choose for which information he wants to update. such as Name, Gender, etc. ***ID for the employee will not be updated once defined it will remain same for the concerned employee.***&#x20;
+
 3. **Delete Employee**\
    In this, An employee can be deleted using the **employee ID.**
 4. **List Employee**\
@@ -21,8 +21,7 @@ This program doesn't to be a **GUI** application, it will be simple console base
 \
 Here are some Examples:
 
-{% tabs %}
-{% tab title="User View" %}
+
 **----Employee Management System-----**
 
 1. **Add Employee**
@@ -32,9 +31,9 @@ Here are some Examples:
 5. **Exit**&#x20;
 
 **Enter your choice:** 1
-{% endtab %}
 
-{% tab title="Add Employee" %}
+
+{tab title="Add Employee" }
 **Enter Employee Details:**
 
 **ID**: 101 \
@@ -44,9 +43,9 @@ Here are some Examples:
 **Position:** Manager \
 **Salary:** 100000 \
 **Employee added successfully.**
-{% endtab %}
 
-{% tab title="Update Details" %}
+
+{ tab title="Update Details" }
 **Enter the Employee ID**
 
 **ID: 101** \
@@ -61,9 +60,9 @@ Which Information you want to update :
    **Gender : Male** \
    **Enter the Gender :** Female \
    **Employee Details updated Successfully**
-   {% endtab %}
+   { endtab }
 
-{% tab title="Delete Employee" %}
+{ tab title="Delete Employee" }
 Enter Employee ID: \
 ID: 101 \
 Employee deleted successfully
