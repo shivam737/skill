@@ -1,0 +1,50 @@
+import random as rd
+
+#List of words for guessing
+words = ['SEVEN', 'SNAKE', 'APPLE', 'MANGO', 'TOMB', 'JERRY', 'HELLO'\
+         , 'HAPPY', 'BREAK']
+
+#function for printing _ _ _ _ _ and words on the right place
+def print_place(lst):
+    for i in lst:
+        print(i, end=' ')
+    print()
+
+
+#Printing the game instruction
+print('--------Guess the Word Game---------------')
+print('You Have 10 chances to win the game')
+print('You have to guess the secret word using letters')
+print('The letters will be placed automatically on the place if correct')
+print("Let's Start----->")
+
+#selecting the word from the list of words
+word = rd.choice(words)
+
+#creation of a list for placing _ _ _ _ _
+lst = ['_' for i in range(5)]
+
+#Printing the first time
+print_place(lst)
+win = False
+#running the loop for executing the game with 5 chances.
+for i in range(10):
+    char = input('Enter the character : ')
+    for i in range(5):
+        if word.lower()[i] == char:
+            lst[i] = char
+
+    print_place(lst)
+    print()
+    if "".join(lst) == word.lower():
+        print_place(lst)
+        win = True
+        print('You Won the Game')
+        print('------------------------------------------')
+        break
+    else:
+        print('Try Again!!')            
+
+if not win:
+    print('You Lose the Game')
+    print('----------------------------------------------')
